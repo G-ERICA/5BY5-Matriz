@@ -34,23 +34,23 @@ double[,] CriarMatrizNotas(int linha, int coluna)
 //Cria uma função que será responsável por preencher as notas na matriz de notas
 double[,] PreencherNotas(double[,] matriz, string[,] matrizMaterias, int linhas, int colunas)
 {
-    int teste = 0;
+    int contador = 0;
     for (int i = 0; i < linhas; i++)
     {
         double soma = 0, nota = 0;
         for (int j = 0; j < colunas - 1; j++)
         {
-            Console.WriteLine($"Qual a {j + 1}ª nota de {matrizMaterias[teste, 0]}");
+            Console.WriteLine($"Qual a {j + 1}ª nota de {matrizMaterias[contador, 0]}");
             matriz[i, j] = Convert.ToDouble(Console.ReadLine()!);
                     while(matriz[i,j] <0 || matriz[i, j] > 10)
                     {
-                        Console.WriteLine($"A nota não é valida. Qual a {j + 1}ª nota de {matrizMaterias[teste, 0]}");
+                        Console.WriteLine($"A nota não é valida. Qual a {j + 1}ª nota de {matrizMaterias[contador, 0]}");
                         matriz[i, j] = Convert.ToDouble(Console.ReadLine()!);
                     }
             nota = matriz[i, j];
             soma += nota;
         }
-        teste = teste + 1;
+        contador = contador + 1;
         matriz[i, colunas - 1] = soma / (colunas - 1);
     }
     return matriz;
